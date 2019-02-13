@@ -1,0 +1,19 @@
+- name: Install draw.io dependencies
+  package: name={{ item }}
+  with_items:
+  - npm
+  - libasound2
+
+- name: Install drawio-batch
+  shell: |
+    cd /tmp
+    mkdir drawio-batch
+    cd drawio-batch
+    git clone https://github.com/languitar/drawio-batch.git
+    cd drawio-batch
+    git checkout 10.0.22
+    npm -g install
+    cd /tmp
+    rm -rf /tmp/drawio-batch
+  args:
+    creates: /usr/local/bin/drawio-batch

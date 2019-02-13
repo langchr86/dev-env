@@ -1,0 +1,11 @@
+- name: Install build tools
+  package: name={{ item }}
+  with_items:
+  - build-essential
+  - gcc
+  - cmake
+  - automake
+  - autoconf
+  - pkg-config
+  - valgrind
+  - gcovr

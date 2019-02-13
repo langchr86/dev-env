@@ -1,0 +1,70 @@
+- name: Install latex tools
+  package: name={{ item }}
+  with_items:
+  - texlive
+  - texlive-generic-recommended
+  - texlive-pictures
+  - texlive-latex-base
+  - texlive-latex-recommended
+  - texlive-latex-extra
+  - texlive-fonts-recommended
+  - texlive-fonts-extra
+  - texlive-lang-english
+  - texlive-lang-german
+  - texlive-science
+  - texlive-xetex
+  - latexmk
+
+- name: Install latex themes
+  package: name={{ item }}
+  with_items:
+  - lmodern
+
+- name: Install document viewer
+  package: name={{ item }}
+  with_items:
+  - okular
+
+- name: Install pandoc tools
+  package: name={{ item }}
+  with_items:
+  - build-essential
+  - make
+  - cmake
+  - gcc
+  - unzip
+
+- name: Install pandoc
+  apt:
+    deb: https://github.com/jgm/pandoc/releases/download/2.6/pandoc-2.6-1-amd64.deb
+
+- name: Install FiraSans
+  shell: |
+    cd /tmp
+    mkdir fira
+    cd fira
+    wget https://github.com/bBoxType/FiraSans/archive/master.zip
+    unzip master.zip
+    mkdir -p /usr/share/fonts/opentype/fira
+    mkdir -p /usr/share/fonts/truetype/fira
+    find FiraSans-master/ -name "*.otf" -exec cp {} /usr/share/fonts/opentype/fira/ \;
+    find FiraSans-master/ -name "*.ttf" -exec cp {} /usr/share/fonts/truetype/fira/ \;
+    cd /tmp
+    rm -rf /tmp/fira
+  args:
+    creates: /usr/share/fonts/opentype/fira/FiraCode-Regular.otf
+
+- name: Install metropolis theme
+  shell: |
+    cd /tmp
+    mkdir metropolis
+    cd metropolis
+    git clone https://github.com/matze/mtheme.git
+    cd mtheme
+    git checkout v1.2
+    make sty
+    make install
+    cd /tmp
+    rm -rf /tmp/metropolis
+  args:
+    creates: /usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetropolis.sty

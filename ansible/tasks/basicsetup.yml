@@ -1,0 +1,36 @@
+- name: Upgrade whole system
+  package:
+    upgrade: yes
+
+- name: Install basic tools
+  package: name={{ item }}
+  with_items:
+  - tree
+  - nano
+  - wget
+  - iotop
+  - htop
+  - rsync
+  - sysstat
+  - dstat
+  - unzip
+  - tar
+
+- name: Install X11 base
+  package: name={{ item }}
+  with_items:
+  - xbase-clients
+  - x11-common
+
+- name: Set timezone to Europe/Zurich
+  timezone:
+    name: Europe/Zurich
+
+- name: Set locale to en_US.UTF-8
+  locale_gen:
+    name: en_US.UTF-8
+
+- name: Set default locale to en_US.UTF-8
+  lineinfile: dest=/etc/default/locale
+    regexp="LC_ALL"
+    line="LC_ALL=\"en_US.UTF-8\""

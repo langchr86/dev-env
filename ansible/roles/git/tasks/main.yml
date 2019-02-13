@@ -1,0 +1,48 @@
+- name: Install git tools
+  package: name={{ item }}
+  with_items:
+  - git
+  - git-gui
+  - gitk
+  - nano
+
+- name: Set global git settings
+  become_user: "{{ git_user_id }}"
+  git_config:
+    scope: global
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  with_items:
+  - {name: 'user.name', value: '{{ git_user_name }}'}
+  - {name: 'user.email', value: '{{ git_user_email }}'}
+  - {name: 'push.default', value: 'simple'}
+  - {name: 'core.editor ', value: 'nano'}
+  - {name: 'alias.pushfwl', value: 'push --force-with-lease'}
+
+- name: Add git-helper
+  become_user: "{{ git_user_id }}"
+  copy:
+    src: git-helper.bash
+    dest: "~/"
+
+- name: Source git-helper
+  become_user: "{{ git_user_id }}"
+  blockinfile:
+    path: "~/.bashrc"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: git-helper"
+    block: |
+      if [ -f ~/git-helper.bash ]; then
+        source ~/git-helper.bash
+        PROMPT_COMMAND="git-find-head-file; $PROMPT_COMMAND"
+        export PS1=$GIT_PROMPT
+      fi
+
+- name: Source bash completion for git
+  become_user: "{{ bash_user_id }}"
+  blockinfile:
+    path: "~/.bashrc"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: bash completion for git"
+    block: |
+      if [ -f /etc/bash_completion.d/git ]; then
+        source /etc/bash_completion.d/git
+      fi
