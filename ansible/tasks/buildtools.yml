@@ -9,3 +9,18 @@
   - pkg-config
   - valgrind
   - gcovr
+
+- name: Install catch2
+  shell: |
+    cd /tmp
+    mkdir catch
+    cd catch
+    git clone https://github.com/catchorg/Catch2.git
+    cd Catch2
+    git checkout v2.6.1
+    cmake -Bbuild -H. -DBUILD_TESTING=OFF
+    sudo cmake --build build/ --target install
+    cd /tmp
+    rm -rf /tmp/catch
+  args:
+    creates: /usr/include/catch2/catch.hpp
