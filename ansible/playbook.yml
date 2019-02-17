@@ -28,3 +28,4 @@
   - role: pandoc
   - role: drawio
   - role: clion
+  - role: chromium
