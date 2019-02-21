@@ -9,6 +9,7 @@
   - pkg-config
   - valgrind
   - gcovr
+  - python
 
 - name: Install catch2
   shell: |
