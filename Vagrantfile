@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 
   # prerequisites
   # vagrant plugin install vagrant-disksize
-  config.disksize.size = '32GB'
+  config.disksize.size = '12GB'
 
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
