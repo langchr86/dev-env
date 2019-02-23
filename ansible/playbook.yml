@@ -14,7 +14,7 @@
   - role: ssh
     vars:
       ssh_user_id: "vagrant"
-      ssh_pub_files: ['ssh_key_clang_home.pub']
+      ssh_pub_files: ['ssh_key_clang_home.opub']
 
   - role: git
     vars:
