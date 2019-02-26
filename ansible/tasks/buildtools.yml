@@ -24,4 +24,4 @@
     cd /tmp
     rm -rf /tmp/catch
   args:
-    creates: /usr/include/catch2/catch.hpp
+    creates: /usr/local/include/catch2/catch.hpp
