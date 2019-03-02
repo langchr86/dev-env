@@ -25,8 +25,9 @@
   - role: bash
   - role: tmux
   - role: clion
+  - role: chromium
 
-#  - role: chromium
+
 #  - role: dockerce
 #  - role: pandoc
 #  - role: drawio

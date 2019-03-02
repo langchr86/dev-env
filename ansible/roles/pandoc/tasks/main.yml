@@ -20,11 +20,6 @@
   with_items:
   - lmodern
 
-- name: Install document viewer
-  package: name={{ item }}
-  with_items:
-  - okular
-
 - name: Install pandoc tools
   package: name={{ item }}
   with_items:
