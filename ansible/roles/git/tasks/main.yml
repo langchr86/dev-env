@@ -25,6 +25,15 @@
     src: git-helper.bash
     dest: "~/"
 
+- name: Ensure Unix line endings
+  become_user: "{{ tmux_user_id }}"
+  replace:
+    path: "{{ item }}"
+    regexp: "\r\n"
+    replace: "\n"
+  with_items:
+  - "~/git-helper.bash"
+
 - name: Source git-helper
   become_user: "{{ git_user_id }}"
   blockinfile:
