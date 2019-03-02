@@ -398,17 +398,18 @@ diesen ein. Verwenden Sie die Standard-Toolchain.
 Arbeiten mit CLion
 ------------------
 
-Shortcuts:
+| Shortcut               | Explanation                      |
+|---                     |---                               |
+| `Ctrl` + `Alt` + `l`   | Formatierung                     |
+| `Ctrl` + `F9`          | Build                            |
+| `Ctrl` + `F10`         | Reload CMake (selber einrichten) |
+| `Alt` + `F7`           | Find usage                       |
+| `Shift`, `Shift`       | Intelligente Suche               |
+| `Ctrl` + `Alt` + `s`   | Settings                         |
+| `Ctrl` + `Shift` + `f` | Search all                       |
+| `Ctrl` + `Shift` + `r` | Search & Replace all             |
 
-* Ctrl + Alt + l: Formatierung
-* Ctrl + F9: Build
-* Ctrl + F10: Reload CMake (selber einrichten)
-* Alt + F7: Find usage
-* Shift, Shift: Intelligente Suche
-* Ctrl + Alt + s: Settings
-* Ctrl + Shift + *f*: Search all
-* Ctrl + Shift + *r*: Search & Replace all
-* [CLion Reference Card](https://resources.jetbrains.com/storage/products/clion/docs/CLion_ReferenceCard.pdf)
+[CLion Reference Card](https://resources.jetbrains.com/storage/products/clion/docs/CLion_ReferenceCard.pdf)
 
 Unittest-Framework:
 
@@ -419,10 +420,12 @@ Unittest-Framework:
 Weitere verfügbare Tools
 ------------------------
 
-* git gui (git commit helper)
-* gitk (git Tree Viewer)
-* valgrind (Memory Analyzer)
-* nano (Console Editor)
-* tmux (Shell Multiplexer)
+* `git gui` (git commit helper)
+* `gitk` (git Tree Viewer)
+* `valgrind` (Memory Analyzer)
+* `nano` (Console Editor)
+* `tmux` (Shell Multiplexer)
+* `okular` (PDF Viewer)
+* `chromium-browser` (Browser)
 
 
