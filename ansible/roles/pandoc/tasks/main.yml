@@ -31,7 +31,7 @@
 
 - name: Install pandoc
   apt:
-    deb: https://github.com/jgm/pandoc/releases/download/2.6/pandoc-2.6-1-amd64.deb
+    deb: https://github.com/jgm/pandoc/releases/download/2.7.1/pandoc-2.7.1-1-amd64.deb
 
 - name: Install FiraSans
   shell: |
