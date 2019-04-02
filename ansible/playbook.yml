@@ -22,6 +22,7 @@
       git_user_name: "Christian Lang"
       git_user_email: "christian.lang@fhnw.ch"
 
+  - role: swapfile
   - role: bash
   - role: tmux
   - role: clion
