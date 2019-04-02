@@ -1,7 +1,3 @@
-- name: Upgrade whole system
-  package:
-    upgrade: yes
-
 - name: Install basic tools
   package: name={{ item }}
   with_items:
