@@ -28,6 +28,7 @@
   - cmake
   - gcc
   - unzip
+  - gpp
 
 - name: Install pandoc
   apt:
