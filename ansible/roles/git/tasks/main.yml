@@ -26,7 +26,7 @@
     dest: "~/"
 
 - name: Ensure Unix line endings
-  become_user: "{{ tmux_user_id }}"
+  become_user: "{{ git_user_id }}"
   replace:
     path: "{{ item }}"
     regexp: "\r\n"
@@ -47,7 +47,7 @@
       fi
 
 - name: Source bash completion for git
-  become_user: "{{ bash_user_id }}"
+  become_user: "{{ git_user_id }}"
   blockinfile:
     path: "~/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: bash completion for git"
