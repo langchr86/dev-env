@@ -10,6 +10,7 @@
   - valgrind
   - gcovr
   - python
+  - libsystemd-dev
 
 - name: Install catch2
   shell: |
