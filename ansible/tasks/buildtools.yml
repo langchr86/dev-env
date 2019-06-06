@@ -26,3 +26,33 @@
     rm -rf /tmp/catch
   args:
     creates: /usr/local/include/catch2/catch.hpp
+
+- name: Install websocketpp
+  shell: |
+    cd /tmp
+    mkdir websocketpp
+    cd websocketpp
+    git clone https://github.com/zaphoyd/websocketpp.git
+    cd websocketpp
+    git checkout 0.8.1
+    cmake -Bbuild -H.
+    sudo cmake --build build/ --target install
+    cd /tmp
+    rm -rf /tmp/websocketpp
+  args:
+    creates: /usr/local/include/websocketpp/version.hpp
+
+- name: Install asio
+  shell: |
+    cd /tmp
+    mkdir asio
+    cd asio
+    git clone https://github.com/chriskohlhoff/asio.git
+    cd asio
+    git checkout asio-1-12-1
+    cd asio/include
+    sudo cp -r asio* /usr/local/include
+    cd /tmp
+    rm -rf /tmp/asio
+  args:
+    creates: /usr/local/include/asio.hpp
