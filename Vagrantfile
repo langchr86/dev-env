@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
 
   # prerequisites: vagrant plugin install vagrant-disksize
-  config.disksize.size = '12GB'
+  config.disksize.size = '16GB'
 
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true

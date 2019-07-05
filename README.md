@@ -222,8 +222,8 @@ arbeitet und für die Verschlüsselung den `pageant.exe` von Putty verwendet.
 Virtualbox
 ----------
 
-Wir verwenden Virtualbox 5.2 as Hypervisor für die VM. 
-[VirtualBox 5.2 Downloads](https://www.virtualbox.org/wiki/Download_Old_Builds_5_2)
+Wir verwenden Virtualbox 6 as Hypervisor für die VM.
+[VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
 
 
