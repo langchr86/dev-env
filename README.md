@@ -49,13 +49,24 @@ Google C++ Code Style
 * Automatisierter Lerneffekt
 
 
+Vorteile einer Entwicklungs-VM
+------------------------------
+
+* einheitliche Umgebung
+* auf jedem Host-System (Windows, Linux, OSX) lauffähig
+* vorinstallierte Libraries und Tools: `catch2`, `CLion`, `valgrind`, etc.
+* vorinstallierte git-Tools: `gitk`, `git-gui`, `git-prompt`, `git-pdf`
+* VM kann bei Defekt einfach zerstört und neu aufgebaut werden
+* Nachteil: Erschwerter Datei-Austausch (siehe unten)
+
+
 
 Einrichten
 ==========
 
 In dieser Anleitung gehen wir Schritt für Schritt durch das Einrichten der
 Entwicklungsumgebung durch. Die hier beschriebenen Tools etc. sind für eine
-Windows-Umgebung vorgesehen, sollten aber auch ähnlich unter Linux oder MacOS
+Windows-Umgebung vorgesehen, sollten aber auch ähnlich unter Linux oder OSX
 funktionieren oder es sind entsprechende Alternativen verfügbar.
 
 
@@ -66,6 +77,7 @@ Putty & SSH-Key
 Für das Einloggen in die VM und für die Git-Repositories wird ein SSH-Key
 benötigt. Dieser wird am einfachsten mit den Tools in Putty erstellt. Putty
 selber wird als SSH-Client verwendet.
+
 
 ### Putty installieren
 
@@ -136,8 +148,8 @@ kompletten Inhalt der `.opub` Datei in die entsprechende Text-Box.
 
 ### Private Key verwenden
 
-Damit Sie sich in gitlab oder auch der VM mittels Private-Public-Private-Key
-Verschlüsselung einloggen können, muss der entsprechende Client eine
+Damit Sie sich in gitlab oder auch der VM mittels
+Private-Public-Key-Verschlüsselung einloggen können, muss der entsprechende Client eine
 Möglichkeit haben, um den private Key zu benutzten. Dies bewerkstelligen wir
 mit dem Tool `pageant.exe` welches ebenfalls mit Putty installiert wurde.
 
@@ -188,6 +200,9 @@ erstellen Sie eine entsprechende Verknüpfung zu `vcxsrv.exe`.
 ~~~
 "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl
 ~~~
+
+Sollte der X-Server evtl. mal abstürzen, können Sie die gleiche Verknüpfung nochmals
+auf dem Desktop erstellen, damit Sie den X-Server bei Bedarf manuell starten können.
 
 
 
@@ -287,7 +302,7 @@ cd
 mkdir prcpp && cd prcpp
 git clone git@gitlab.fhnw.ch:prcpp/students/dev-env.git
 cd dev-env
-git checkout -b privat/<my_name>
+git checkout -b private/<my_name>
 ~~~
 
 Nun haben Sie das Repository ausgecheckt und einen privaten Branch erstellt,
@@ -324,7 +339,7 @@ dazu folgenden Dateien:
 VM erzeugen
 -----------
 
-Die Erzeugung dauert ca. 30 Minuten und benötigt eine stabile
+Die Erzeugung dauert ca. 30 Minuten und benötigt eine stabile und schnelle
 Internet-Verbindung. Verwenden Sie Git Bash und wechseln Sie in den `dev-env`
 Ordner. Um die Erzeugung zu starten, verwenden Sie folgenden Befehl. 
 
@@ -366,6 +381,10 @@ angepasst werden. Dazu muss die VM gestopp sein.
   Default ist `2222`.
 
 ![Virtualbox](images/virtualbox_settings.png)
+
+Diese manuellen Anpassungen bleiben nur solange erhalten, wie die VM nur mittels
+Virtualbox GUI gestartet wird. Sobald Vagrant für das Starten verwendet wird,
+werden alle Einstellungen wieder auf die Werte von Valgrind gesetzt.
 
 
 
@@ -429,3 +448,51 @@ Weitere verfügbare Tools
 * `chromium-browser` (Browser)
 
 
+Rechen-Performance der VM
+-------------------------
+
+Damit die VM beinahe native Rechen-Leistung erreicht (wichtig für diverse Aufgaben),
+sollten Sie sicherstellen, dass Ihr Rechner alle benötigten Virtualisierungs-Technologien
+aktiviert hat. Diese finden Sie in den BIOS/UEFI-Einstellungen ihres PCs.
+
+Unter Intel-CPUs aktivieren Sie: `VT-x` und `VT-d`
+
+Unter AMD-CPUs aktivieren Sie: `AMD-V` und `AMD-Vi`
+
+
+Austauschen von Dateien zwischen VM und Host
+--------------------------------------------
+
+
+### Variante Copy-Paste
+
+Öffnen Sie die entsprechende Datei und kopieren Sie den Inhalt mittels
+`Ctrl-A` und `Ctrl-C`. Fügen Sie den Inhalt nun am Zielort in eine
+neue Datei ein.
+
+Achtung: Unter Linux führt das Markieren von Text meist direkt zu einer Kopie dieses
+in der Zwischenablage. Wenn Sie also vom Host in die VM kopieren möchten,
+sollten Sie in der VM keinen Text bereits markiert haben und auch keinen vor dem
+Einfügen markieren.
+
+
+### Variante synced-folder
+
+Sie können über Vagrant einen geteilten Order zwischen VM und Host einrichten:
+[www.vagrantup.com/docs/synced-folders/basic_usage.html](https://www.vagrantup.com/docs/synced-folders/basic_usage.html)
+Damit dieser verfügbar ist, müssen Sie die VM allerdings zwingend immer
+über Vagrant starten.
+
+
+### Variante sftp
+
+Da wir für Putty und Vagrant bereits die SSH-Verbindung verwenden, können wir diese
+auch für Daten-Austausch einsetzten. Dies wird mittels dem `sftp`-Protokol ermöglicht.
+
+Ein gute Datei-Manager, welcher dieses Protokol unterstützt ist z.B. `TotalCommander`.
+Laden Sie ihn sich unter [www.ghisler.com/ddownload.htm](https://www.ghisler.com/ddownload.htm) herunter.
+Laden Sie sich zudem das `sftp`-Plugin hier [www.ghisler.com/dplugins.htm](https://www.ghisler.com/dplugins.htm) herunter.
+Installieren Sie dieses, indem Sie es im TotalCommander doppelklicken.
+
+Das Plugin finden Sie nun in der `Netzwerkumgebung` des TotalCommanders. Richten Sie es mit
+den gleichen Einstellungen wie die Putty-Session ein. Wählen Sie zudem `PuTTy-Agenten benutzten` an.
