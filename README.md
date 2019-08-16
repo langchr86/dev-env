@@ -221,7 +221,7 @@ Bash-Konsole um `vagrant` zu bedienen.
   * `Use (Tortoise)Plink`. Hier wählen Sie den Pfad zur `plink.exe`. Auch
     diese Tool wurde bereits mit Putty installiert und befindet sich
     typischerweise unter: `c:\Program Files\PuTTY\plink.exe`
-  * `Use the OpenSSH library`
+  * `Use the OpenSSL library`
   * `Checkout as-is, commit UNIX-style line endings`
   * `Use MinTTY`
   * `Enable file system caching`
@@ -322,8 +322,8 @@ git rebase master
 VM personalisieren
 ------------------
 
-Bevor Sie nun `vagrant` starten, sollten Sie die VM personalisieren. Ändern Sie
-dazu folgenden Dateien:
+Bevor Sie nun `vagrant` starten, sollten Sie die VM personalisieren.
+Ändern Sie dazu folgende Dateien:
 
 * `dev-env/Vagrantfile`: Ändern Sie nach Bedarf:
   `config.disksize.size`, `vb.memory` und `vb.cpus`
@@ -339,9 +339,9 @@ dazu folgenden Dateien:
 VM erzeugen
 -----------
 
-Die Erzeugung dauert ca. 30 Minuten und benötigt eine stabile und schnelle
-Internet-Verbindung. Verwenden Sie Git Bash und wechseln Sie in den `dev-env`
-Ordner. Um die Erzeugung zu starten, verwenden Sie folgenden Befehl. 
+Die Erzeugung dauert ca. 30 Minuten und benötigt eine stabile und schnelle Internet-Verbindung.
+Verwenden Sie beim erstmaligen Erzeugen Git Bash mit `Administrator`-Rechten.
+Um die Erzeugung zu starten, verwenden Sie folgenden Befehl.
 
 ~~~
 cd

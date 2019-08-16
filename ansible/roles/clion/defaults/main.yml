@@ -1,7 +1,7 @@
 ---
 clion_user_id: "vagrant"
 
-clion_version: 2019.1
+clion_version: 2019.2
 clion_download_mirror: https://download.jetbrains.com/cpp/
 clion_download_directory: /tmp
 clion_user_dir: "/home/{{ clion_user_id }}"
