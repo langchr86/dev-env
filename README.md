@@ -478,7 +478,7 @@ Einfügen markieren.
 
 ### Variante synced-folder
 
-Sie können über Vagrant einen geteilten Order zwischen VM und Host einrichten:
+Sie können über Vagrant einen geteilten Ordner zwischen VM und Host einrichten:
 [www.vagrantup.com/docs/synced-folders/basic_usage.html](https://www.vagrantup.com/docs/synced-folders/basic_usage.html)
 Damit dieser verfügbar ist, müssen Sie die VM allerdings zwingend immer
 über Vagrant starten.
@@ -487,9 +487,9 @@ Damit dieser verfügbar ist, müssen Sie die VM allerdings zwingend immer
 ### Variante sftp
 
 Da wir für Putty und Vagrant bereits die SSH-Verbindung verwenden, können wir diese
-auch für Daten-Austausch einsetzten. Dies wird mittels dem `sftp`-Protokol ermöglicht.
+auch für den Datei-Austausch einsetzten. Dies wird mittels dem `sftp`-Protokol ermöglicht.
 
-Ein gute Datei-Manager, welcher dieses Protokol unterstützt ist z.B. `TotalCommander`.
+Ein guter Datei-Manager, welcher dieses Protokol unterstützt ist z.B. `TotalCommander`.
 Laden Sie ihn sich unter [www.ghisler.com/ddownload.htm](https://www.ghisler.com/ddownload.htm) herunter.
 Laden Sie sich zudem das `sftp`-Plugin hier [www.ghisler.com/dplugins.htm](https://www.ghisler.com/dplugins.htm) herunter.
 Installieren Sie dieses, indem Sie es im TotalCommander doppelklicken.
