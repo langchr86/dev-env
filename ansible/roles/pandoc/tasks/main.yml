@@ -89,3 +89,8 @@
     rm -rf /tmp/metropolis
   args:
     creates: /usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetropolis.sty
+
+- name: Install markdownlint
+  gem:
+    name: mdl
+    state: latest
