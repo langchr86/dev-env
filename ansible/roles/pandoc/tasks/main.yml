@@ -91,6 +91,5 @@
     creates: /usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetropolis.sty
 
 - name: Install markdownlint
-  gem:
+  snap:
     name: mdl
-    state: latest
