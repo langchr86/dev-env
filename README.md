@@ -330,12 +330,12 @@ Bevor Sie nun `vagrant` starten, sollten Sie die VM personalisieren.
 Ändern Sie dazu folgende Dateien:
 
 * `dev-env/Vagrantfile`: Ändern Sie nach Bedarf:
-  `config.disksize.size`, `vb.memory` und `vb.cpus`
+  `vb.memory` und `vb.cpus`
 * `dev-env/ansible/roles/ssh/files`: Kopieren Sie ihren public Key
   mit Endung `.opub` in diesen Ordner
-* `dev-env/ansible/playbook.xml`: Ändern Sie die Zeile `ssh_pub_files:`
+* `dev-env/ansible/playbook.yml`: Ändern Sie die Zeile `ssh_pub_files:`
   um ihr eigenes File zu verwenden.
-* `dev-env/ansible/playbook.xml`: Ändern Sie die Zeilen unter `role: git`
+* `dev-env/ansible/playbook.yml`: Ändern Sie die Zeilen unter `role: git`
   auf ihren Namen und ihre E-Mail-Adresse
 
 
