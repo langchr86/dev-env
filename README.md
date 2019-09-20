@@ -497,6 +497,7 @@ Ein guter Datei-Manager, welcher dieses Protokol unterstützt ist z.B. `TotalCom
 Laden Sie ihn sich unter [www.ghisler.com/ddownload.htm](https://www.ghisler.com/ddownload.htm) herunter.
 Laden Sie sich zudem das `sftp`-Plugin hier [www.ghisler.com/dplugins.htm](https://www.ghisler.com/dplugins.htm) herunter.
 Installieren Sie dieses, indem Sie es im TotalCommander doppelklicken.
+Evtl. muss dieser als Administrator laufen, um das Plugin richtig zu installieren.
 
 Das Plugin finden Sie nun in der `Netzwerkumgebung` des TotalCommanders. Richten Sie es mit
 den gleichen Einstellungen wie die Putty-Session ein. Wählen Sie zudem `PuTTy-Agenten benutzten` an.
