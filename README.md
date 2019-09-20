@@ -114,6 +114,10 @@ Um das mühselige und unsichere Nutzername/Passwort-Schema zu ersetzten wird
 meistens eine Public-Private-Key Authentisierung verwendet. Dazu müssen wir
 ein entsprechendes Key-Paar erstellen.
 
+Sollten Sie bereits ein solches Paar haben,
+können Sie die Generierung überspringen und diesen existierenden Schlüssel verwenden.
+Stellen Sie aber sicher, dass dieser den Anforderungen wie `RSA` und Bitbreite entspricht.
+
 * Öffnen Sie den Key-Generator welcher mit Putty installiert wurde.
   Meistens unter: `c:\Program Files\PuTTY\puttygen.exe`
 * Stellen Sie folgende Optionen unten im Fenster "Parameter" ein:
