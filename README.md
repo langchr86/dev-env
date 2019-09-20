@@ -174,7 +174,7 @@ wir eine entsprechende Verknüpfung zu `pageant.exe`.
 `pageant.exe` wird nun bei jedem Windows-Start automatisch aktiv. Er erscheint
 als kleines Desktop-Symbol in der Taskleiste. Sollten Sie ihren private Key
 mittels Passwort gesichert haben, wird er Sie jeweils beim Aufstarten
-einmalig danach fragen.
+einmalig danach fragen. Starten Sie `pageant.exe` nun über die erstellte Verknüpfung.
 
 
 
