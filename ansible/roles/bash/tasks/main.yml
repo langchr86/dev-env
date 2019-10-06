@@ -21,7 +21,6 @@
     create=True
   with_items:
   - {regexp: "^alias ll=", line: "alias ll='ls -lhA --color=auto'"}
-  - {regexp: "^alias ps=", line: "alias ps='ps aux'"}
   - {regexp: "^alias cdp=", line: "alias cdp='cd $(pwd)'"}
   - {regexp: "^alias bigdirs=", line: "alias bigdirs='du --max-depth=1 2> /dev/null | sort -n -r | head -n20'"}
 

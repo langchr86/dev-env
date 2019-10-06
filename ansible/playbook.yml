@@ -1,6 +1,8 @@
 - hosts: all
 
   pre_tasks:
+  - include_tasks: tasks/ubuntu_apt.yml
+
   - name: Update package manager repositories
     package: update_cache=yes
     changed_when: False
