@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "4096"
     vb.cpus = 2
     vb.customize ["modifyvm", :id, "--vram", "64"]
+    vb.customize ["modifyvm", :id, "--spec-ctrl", "on"]
   end
 
   config.vm.hostname = "prcpp"
