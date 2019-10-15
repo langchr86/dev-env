@@ -209,6 +209,27 @@ Sollte der X-Server evtl. mal abstürzen, können Sie die gleiche Verknüpfung n
 auf dem Desktop erstellen, damit Sie den X-Server bei Bedarf manuell starten können.
 
 
+### HiDPI/4K Displays
+
+Um auf hochauflösenden Displays eine scharfe Darstellung der GUIs zu erhalten,
+sollten Sie die Skalierung durch Windows für den X11-Server deaktivieren.
+
+* `Rechtsklick` auf die `vcxsrv`-Verknüpfung -> `Eigenschaften` -> `Kompatibilität` -> `Hohe DPI-Einstellungen ändern`
+* `Hohe DPI-Skalierung überschreiben` -> Aktivieren und `Anwendung` auswählen
+
+Ab jetzt werden keine X11-GUIs mehr durch Windows skaliert.
+Falls ihr GUI mit zu kleinen Elementen gerendert wird,
+setzten Sie die folgende Variable später in ihrer VM im `~/.bashrc`.
+Für ein 4K-Display z.B. auf den Wert `2`.
+Nur Integer-Werte sind erlaubt.
+
+~~~~~~
+export GDK_SCALE=2
+~~~~~~
+
+> Siehe auch: [blurry-fonts-on-using-windows-default-scaling-with-wsl-gui-applications-hidpi](https://superuser.com/questions/1370361/blurry-fonts-on-using-windows-default-scaling-with-wsl-gui-applications-hidpi)
+
+
 
 Git für Windows / Git Bash
 --------------------------
