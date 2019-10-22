@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.hostname = "prcpp"
+  config.vm.network "forwarded_port", guest: 22, host: 2222
 
   # Run Ansible from the Vagrant VM
   config.vm.provision "ansible_local" do |ansible|
