@@ -1,7 +1,6 @@
 ---
 
 - name: Add bash export LS_COLORS
-  become_user: "{{ bash_user_id }}"
   lineinfile:
     dest="~/.bash_aliases"
     line="export LS_COLORS='di=0;35'"
@@ -11,7 +10,6 @@
     create=True
 
 - name: Add bash aliases
-  become_user: "{{ bash_user_id }}"
   lineinfile:
     dest="~/.bash_aliases"
     line="{{ item.line }}"
@@ -25,7 +23,6 @@
   - {regexp: "^alias bigdirs=", line: "alias bigdirs='du --max-depth=1 2> /dev/null | sort -n -r | head -n20'"}
 
 - name: Add bash exports
-  become_user: "{{ bash_user_id }}"
   lineinfile:
     dest="~/.bashrc"
     line="{{ item.line }}"
@@ -38,7 +35,6 @@
   - {regexp: "^export HISTFILESIZE=", line: "export HISTFILESIZE=99999"}
 
 - name: Source usual bash definitions
-  become_user: "{{ bash_user_id }}"
   blockinfile:
     path: "~/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: usual bash definitions"

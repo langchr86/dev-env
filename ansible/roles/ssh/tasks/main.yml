@@ -1,4 +1,5 @@
 - name: Install ssh tools
+  become: yes
   package: name={{ item }}
   with_items:
   - xorg
@@ -7,8 +8,9 @@
   - openssh-server
 
 - name: Add authorized keys
+  become: yes
   authorized_key:
-    user: "{{ ssh_user_id }}"
+    user: "{{ ansible_env.USER }}"
     state: present
     key: "{{ lookup('file', '{{ item }}') }}"
   with_items:

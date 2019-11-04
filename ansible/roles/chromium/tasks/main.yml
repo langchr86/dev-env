@@ -1,16 +1,14 @@
 ---
 
 - name: add ppa repository
+  become: yes
   apt_repository:
     repo: 'ppa:canonical-chromium-builds/stage'
     state: present
     update_cache: yes
-  become: yes
-  become_user: root
 
 - name: install chromium
+  become: yes
   apt:
     name: chromium-browser
     state: present
-  become: yes
-  become_user: root

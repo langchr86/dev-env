@@ -4,6 +4,7 @@
   - include_tasks: tasks/ubuntu_apt.yml
 
   - name: Update package manager repositories
+    become: yes
     package: update_cache=yes
     changed_when: False
 
@@ -15,12 +16,10 @@
   roles:
   - role: ssh
     vars:
-      ssh_user_id: "vagrant"
       ssh_pub_files: ['ssh_key_clang_home.opub']
 
   - role: git
     vars:
-      git_user_id: "vagrant"
       git_user_name: "Christian Lang"
       git_user_email: "christian.lang@fhnw.ch"
 

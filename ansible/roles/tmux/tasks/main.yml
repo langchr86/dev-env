@@ -1,22 +1,20 @@
 - name: Install tmux tools
+  become: yes
   package: name={{ item }}
   with_items:
   - tmux
 
 - name: Add tmux config
-  become_user: "{{ tmux_user_id }}"
   copy:
     src: .tmux.conf
     dest: "~/"
 
 - name: Add tmux-helper
-  become_user: "{{ tmux_user_id }}"
   copy:
     src: tmux-helper.bash
     dest: "~/"
 
 - name: Ensure Unix line endings
-  become_user: "{{ tmux_user_id }}"
   replace:
     path: "{{ item }}"
     regexp: "\r\n"
@@ -26,7 +24,6 @@
   - "~/.tmux.conf"
 
 - name: Source tmux-helper
-  become_user: "{{ tmux_user_id }}"
   blockinfile:
     path: "~/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: tmux-helper"

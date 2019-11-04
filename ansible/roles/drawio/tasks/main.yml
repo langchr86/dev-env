@@ -1,4 +1,5 @@
 - name: Install draw.io dependencies
+  become: yes
   package: name={{ item }}
   with_items:
   - npm
@@ -12,7 +13,7 @@
     git clone https://github.com/languitar/drawio-batch.git
     cd drawio-batch
     git checkout 10.0.22
-    npm -g install
+    sudo npm -g install
     cd /tmp
     rm -rf /tmp/drawio-batch
   args:

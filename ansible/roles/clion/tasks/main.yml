@@ -1,10 +1,10 @@
 - name: Install dependency for CLion markdown plugin
+  become: yes
   package: name={{ item }}
   with_items:
   - openjfx
 
 - name: Create directories for CLion
-  become_user: "{{ clion_user_id }}"
   file:
     path: "{{ item }}"
     state: directory
@@ -13,7 +13,6 @@
   - "{{ clion_install_directory }}"
 
 - name: Install CLion
-  become_user: "{{ clion_user_id }}"
   unarchive:
     copy: no
     src: "{{ clion_download_url}}"
@@ -21,7 +20,6 @@
     creates: "{{ clion_location }}/bin/clion.sh"
 
 - name: Add clion alias for user
-  become_user: "{{ clion_user_id }}"
   lineinfile:
     dest="{{ clion_user_dir }}/.bash_aliases"
     line="alias clion='{{ clion_location }}/bin/clion.sh'"

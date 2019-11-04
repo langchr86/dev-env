@@ -1,4 +1,5 @@
 - name: Install git tools
+  become: yes
   package: name={{ item }}
   with_items:
   - git
@@ -8,7 +9,6 @@
   - poppler-utils
 
 - name: Set global git settings
-  become_user: "{{ git_user_id }}"
   git_config:
     scope: global
     name: "{{ item.name }}"
@@ -23,25 +23,21 @@
   - {name: 'diff.pdf.binary', value: 'true'}
 
 - name: Add git-helper
-  become_user: "{{ git_user_id }}"
   copy:
     src: git-helper.bash
     dest: "~/"
 
 - name: Add git-pdftotext
-  become_user: "{{ git_user_id }}"
   copy:
     src: git-pdftotext.sh
     dest: "~/"
 
 - name: Make git-pdftotext executable
-  become_user: "{{ git_user_id }}"
   file:
     path: "~/git-pdftotext.sh"
     mode: 0755
 
 - name: Ensure Unix line endings
-  become_user: "{{ git_user_id }}"
   replace:
     path: "{{ item }}"
     regexp: "\r\n"
@@ -51,7 +47,6 @@
   - "~/git-pdftotext.sh"
 
 - name: Add git attributes file
-  become_user: "{{ git_user_id }}"
   lineinfile:
     dest="~/.config/git/attributes"
     line="{{ item.line }}"
@@ -63,7 +58,6 @@
   - {regexp: "^[*][.]pdf diff=", line: "*.pdf diff=pdf"}
 
 - name: Source git-helper
-  become_user: "{{ git_user_id }}"
   blockinfile:
     path: "~/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: git-helper"
@@ -75,7 +69,6 @@
       fi
 
 - name: Source bash completion for git
-  become_user: "{{ git_user_id }}"
   blockinfile:
     path: "~/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: bash completion for git"

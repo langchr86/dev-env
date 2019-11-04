@@ -1,4 +1,5 @@
 - name: Install latex tools
+  become: yes
   package: name={{ item }}
   with_items:
   - texlive
@@ -16,29 +17,28 @@
   - latexmk
 
 - name: Install latex themes
+  become: yes
   package: name={{ item }}
   with_items:
   - lmodern
 
 - name: Evaluate latex home
-  become_user: "{{ pandoc_user_id }}"
   shell: kpsewhich -var-value=TEXMFHOME
   register: latex_home_output
   changed_when: False
 
 - name: Set latex directory variables
+  become: yes
   set_fact:
     latex_home_dir: "{{ latex_home_output.stdout }}"
     latex_package_dir: "{{ latex_home_output.stdout }}/tex/latex/"
 
 - name: Prepare folder for local latex packages
-  become_user: "{{ pandoc_user_id }}"
   file:
     path: "{{ latex_package_dir }}"
     state: directory
 
 - name: Install tikz-uml
-  become_user: "{{ pandoc_user_id }}"
   unarchive:
     copy: no
     src: "{{ pandoc_tikz_uml_url }}"
@@ -46,6 +46,7 @@
     creates: "{{ latex_package_dir }}/{{ pandoc_tikz_uml_version }}/tikz-uml.sty"
 
 - name: Install pandoc tools
+  become: yes
   package: name={{ item }}
   with_items:
   - build-essential
@@ -56,6 +57,7 @@
   - gpp
 
 - name: Install pandoc
+  become: yes
   apt:
     deb: https://github.com/jgm/pandoc/releases/download/2.7.1/pandoc-2.7.1-1-amd64.deb
 
@@ -68,8 +70,8 @@
     unzip master.zip
     mkdir -p /usr/share/fonts/opentype/fira
     mkdir -p /usr/share/fonts/truetype/fira
-    find FiraSans-master/ -name "*.otf" -exec cp {} /usr/share/fonts/opentype/fira/ \;
-    find FiraSans-master/ -name "*.ttf" -exec cp {} /usr/share/fonts/truetype/fira/ \;
+    find FiraSans-master/ -name "*.otf" -exec sudo cp {} /usr/share/fonts/opentype/fira/ \;
+    find FiraSans-master/ -name "*.ttf" -exec sudo cp {} /usr/share/fonts/truetype/fira/ \;
     cd /tmp
     rm -rf /tmp/fira
   args:
@@ -84,12 +86,13 @@
     cd mtheme
     git checkout v1.2
     make sty
-    make install
+    sudo make install
     cd /tmp
     rm -rf /tmp/metropolis
   args:
     creates: /usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetropolis.sty
 
 - name: Install markdownlint
+  become: yes
   snap:
     name: mdl
