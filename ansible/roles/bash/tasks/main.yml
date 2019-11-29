@@ -1,14 +1,5 @@
 ---
 
-- name: Add bash export LS_COLORS
-  lineinfile:
-    dest="~/.bash_aliases"
-    line="export LS_COLORS='di=0;35'"
-    regexp='^export LS_COLORS='
-    state=present
-    insertafter=EOF
-    create=True
-
 - name: Add bash aliases
   lineinfile:
     dest="~/.bash_aliases"
@@ -33,6 +24,7 @@
   with_items:
   - {regexp: "^export HISTSIZE=", line: "export HISTSIZE=9999"}
   - {regexp: "^export HISTFILESIZE=", line: "export HISTFILESIZE=99999"}
+  - {regexp: "^export LS_COLORS=", line: "export LS_COLORS='di=0;35'"}
 
 - name: Source usual bash definitions
   blockinfile:
