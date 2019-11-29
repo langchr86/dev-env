@@ -356,7 +356,7 @@ Bevor Sie nun `vagrant` starten, sollten Sie die VM personalisieren.
   mit Endung `.opub` in diesen Ordner
 * `dev-env/ansible/playbook.yml`: Ändern Sie die Zeile `ssh_pub_files:`
   um ihr eigenes File zu verwenden.
-* `dev-env/ansible/playbook.yml`: Ändern Sie die Zeilen unter `role: git`
+* `dev-env/ansible/playbook.yml`: Ändern Sie die Zeilen unter `role: git-tools`
   auf ihren Namen und ihre E-Mail-Adresse
 
 
