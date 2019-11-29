@@ -18,10 +18,13 @@
     vars:
       ssh_pub_files: ['ssh_key_clang_home.opub']
 
-  - role: git
+  - role: git-tools
     vars:
       git_user_name: "Christian Lang"
       git_user_email: "christian.lang@fhnw.ch"
+      git_rerere: on
+      git_editor_nano: on
+      git_prompt: on
 
   - role: swapfile
   - role: bash

@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
   # Run Ansible from the Vagrant VM
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/vagrant/ansible/playbook.yml"
+    ansible.galaxy_role_file = "/vagrant/ansible/requirements.yml"
   end
 
 end
