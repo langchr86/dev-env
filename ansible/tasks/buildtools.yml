@@ -22,7 +22,7 @@
     cd catch
     git clone https://github.com/catchorg/Catch2.git
     cd Catch2
-    git checkout v2.6.1
+    git checkout v2.11.0
     cmake -Bbuild -H. -DBUILD_TESTING=OFF
     cmake --build build/ --target install
     cd /tmp
