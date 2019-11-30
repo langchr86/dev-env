@@ -62,6 +62,7 @@
     deb: https://github.com/jgm/pandoc/releases/download/2.7.1/pandoc-2.7.1-1-amd64.deb
 
 - name: Install FiraSans
+  become: yes
   shell: |
     cd /tmp
     mkdir fira
@@ -70,14 +71,15 @@
     unzip master.zip
     mkdir -p /usr/share/fonts/opentype/fira
     mkdir -p /usr/share/fonts/truetype/fira
-    find FiraSans-master/ -name "*.otf" -exec sudo cp {} /usr/share/fonts/opentype/fira/ \;
-    find FiraSans-master/ -name "*.ttf" -exec sudo cp {} /usr/share/fonts/truetype/fira/ \;
+    find FiraSans-master/ -name "*.otf" -exec cp {} /usr/share/fonts/opentype/fira/ \;
+    find FiraSans-master/ -name "*.ttf" -exec cp {} /usr/share/fonts/truetype/fira/ \;
     cd /tmp
     rm -rf /tmp/fira
   args:
     creates: /usr/share/fonts/opentype/fira/FiraCode-Regular.otf
 
 - name: Install metropolis theme
+  become: yes
   shell: |
     cd /tmp
     mkdir metropolis
@@ -86,7 +88,7 @@
     cd mtheme
     git checkout v1.2
     make sty
-    sudo make install
+    make install
     cd /tmp
     rm -rf /tmp/metropolis
   args:

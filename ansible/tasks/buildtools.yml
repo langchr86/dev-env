@@ -15,6 +15,7 @@
   - libsystemd-dev
 
 - name: Install catch2
+  become: yes
   shell: |
     cd /tmp
     mkdir catch
@@ -23,13 +24,14 @@
     cd Catch2
     git checkout v2.6.1
     cmake -Bbuild -H. -DBUILD_TESTING=OFF
-    sudo cmake --build build/ --target install
+    cmake --build build/ --target install
     cd /tmp
     rm -rf /tmp/catch
   args:
     creates: /usr/local/include/catch2/catch.hpp
 
 - name: Install websocketpp
+  become: yes
   shell: |
     cd /tmp
     mkdir websocketpp
@@ -38,13 +40,14 @@
     cd websocketpp
     git checkout 0.8.1
     cmake -Bbuild -H.
-    sudo cmake --build build/ --target install
+    cmake --build build/ --target install
     cd /tmp
     rm -rf /tmp/websocketpp
   args:
     creates: /usr/local/include/websocketpp/version.hpp
 
 - name: Install asio
+  become: yes
   shell: |
     cd /tmp
     mkdir asio
@@ -53,7 +56,7 @@
     cd asio
     git checkout asio-1-12-1
     cd asio/include
-    sudo cp -r asio* /usr/local/include
+    cp -r asio* /usr/local/include
     cd /tmp
     rm -rf /tmp/asio
   args:
