@@ -56,7 +56,7 @@
   - unzip
   - gpp
 
-- name: Install pandoc depedencies
+- name: Install pandoc dependencies
   become: yes
   package: name={{ item }}
   with_items:
@@ -102,7 +102,23 @@
   args:
     creates: /usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetropolis.sty
 
+- name: Install markdownlint dependencies
+  become: yes
+  package: name={{ item }}
+  with_items:
+  - npm
+
 - name: Install markdownlint
   become: yes
-  snap:
-    name: mdl
+  shell: |
+    cd /tmp
+    mkdir mdl
+    cd mdl
+    git clone https://github.com/igorshubovych/markdownlint-cli.git
+    cd markdownlint-cli
+    git checkout v0.19.0
+    npm install -g
+    cd /tmp
+    rm -rf /tmp/mdl
+  args:
+    creates: /usr/local/bin/markdownlint
