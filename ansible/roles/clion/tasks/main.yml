@@ -27,3 +27,13 @@
     state=present
     insertafter=EOF
     create=True
+
+- name: create local .local/share/applications folder
+  file:
+    dest: "{{ ansible_env.HOME }}/.local/share/applications/"
+    state: directory
+
+- name: Add clion desktop file
+  template:
+    dest: "{{ ansible_env.HOME }}/.local/share/applications/jetbrains-clion.desktop"
+    src: "jetbrains-clion.desktop"
