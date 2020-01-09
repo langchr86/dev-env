@@ -35,41 +35,59 @@ Einrichtung der VM
 
 Für die Studenten existiert eine vorgenerierte Desktop-VM,
 welche direkt verwendet werden kann.
-Siehe: [desktop-vm](desktop-vm)
-Empfohlen für die Studenten.
+Die VM selber ist bereits generiert
+und muss nur noch in Virtualbox importiert werden.
 
-Für einen professionelleren und vollständigeren Ansatz kann die Headless-VM Variante verwendet werden.
-Siehe: [headless-vm](headless-vm)
-
+Das Archiv-File der VM finden Sie auf dem AD oder auf dem verteilten USB-Stick.
 
 
+Virtualbox
+----------
 
-Verwendung der VM
-=================
+Wir verwenden Virtualbox as Hypervisor für die VM.
+[VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
+
+Nach der Installation können Sie die heruntergeladene VM als Appliance importieren.
+
+Unter den VM-Einstellungen finden Sie den Punkt `Serielle Schnittestellen`.
+Passen Sie dort den Pfad zu einem existierenden Ordner an,
+wo das Debug-Log der VM gespeichert werden kann.
+
+
+Rechen-Performance der VM
+-------------------------
+
+Damit die VM beinahe native Rechen-Leistung erreicht (wichtig für diverse Aufgaben),
+sollten Sie sicherstellen, dass Ihr Rechner alle benötigten Virtualisierungs-Technologien
+aktiviert hat. Diese finden Sie in den BIOS/UEFI-Einstellungen ihres PCs.
+
+Unter Intel-CPUs aktivieren Sie: `VT-x` und `VT-d`
+
+Unter AMD-CPUs aktivieren Sie: `AMD-V` und `AMD-Vi`
+
+Sollten trotzdem Probleme mit der VM auftretten,
+stellen Sie sicher, dass KVM als Paravirtualisierung in Virtualbox eingestellt ist.
+
+
+VM Tuning (optional)
+---------
+
+Bei Bedarf können Teilaspekte der VM auch nachträglich über das Virtualbox GUI
+angepasst werden. Dazu muss die VM gestoppt sein.
+
+* HDD Modus der virtuellen Disks auf SSD stellen.
+* RAM/CPUs anpassen
+
+
+Verwendung der Desktop-VM
+=========================
 
 Starten Sie die VM direkt in Virtualbox und verwenden Sie die Desktop-Oberfläche.
-Nutzername und Passwort sind: `vargant:vargant`
+Nutzername und Passwort sind: `vargant:vargant`.
 
-Jetzt sollten Sie das Arbeits-Repository innerhalb der VM auschecken:
-
-~~~
-cd
-mkdir prcpp && cd prcpp
-git clone git@gitlab.fhnw.ch:prcpp/students/workspace.git
-~~~
-
-TODO
-
-
-
-Einrichten: CLion
------------------
-
-Für CLion und alle anderen JetBrains Produkte erhalten sie unter
-[www.jetbrains.com/student/](https://www.jetbrains.com/student/) eine gratis
-Lizenz. Starten Sie CLion mittels `clion&` über die Konsole und richten Sie
-diesen ein. Verwenden Sie die Standard-Toolchain.
-
+Das Arbeits-Repository ist innerhalb der VM bereits vorbereitet unter: `~/prcpp/workspace`.
+Sie können dieses mit CLion öffnen und direkt darin arbeiten.
+Tipp: Es kann praktisch sein, Commits während dem Lösen von Aufgaben/Testaten zu machen.
 
 
 Arbeiten mit CLion
@@ -79,7 +97,7 @@ Arbeiten mit CLion
 |---                     |---                               |
 | `Ctrl` + `Alt` + `l`   | Formatierung                     |
 | `Ctrl` + `F9`          | Build                            |
-| `Ctrl` + `F10`         | Reload CMake (selber einrichten) |
+| `Ctrl` + `F10`         | Reload CMake)                    |
 | `Alt` + `F7`           | Find usage                       |
 | `Shift`, `Shift`       | Intelligente Suche               |
 | `Ctrl` + `Alt` + `s`   | Settings                         |
@@ -105,18 +123,6 @@ Weitere verfügbare Tools
 * `okular` (PDF Viewer)
 
 
-Rechen-Performance der VM
--------------------------
-
-Damit die VM beinahe native Rechen-Leistung erreicht (wichtig für diverse Aufgaben),
-sollten Sie sicherstellen, dass Ihr Rechner alle benötigten Virtualisierungs-Technologien
-aktiviert hat. Diese finden Sie in den BIOS/UEFI-Einstellungen ihres PCs.
-
-Unter Intel-CPUs aktivieren Sie: `VT-x` und `VT-d`
-
-Unter AMD-CPUs aktivieren Sie: `AMD-V` und `AMD-Vi`
-
-
 Austauschen von Dateien zwischen VM und Host
 --------------------------------------------
 
@@ -139,9 +145,13 @@ Die Desktop-VM hat bereits ein eingerichten Samba-Dienst,
 welcher eine SMB-Share für das Home-Verzeichniss des `vagrant`-Users zur Verfügung stellt.
 Dieses Share können Sie in Windows direkt verwenden.
 
-Öffnen Sie mittels `Win` + `R` 
+* Öffnen Sie den Dialog für Netzwerk-Laufwerke mittels `Win` + `R` und:
 
-~~~~~~
-RUNDLL32 SHELL32.DLL,SHHelpShortcuts_RunDLL Connect
-~~~~~~
+  ~~~~~~
+  RUNDLL32 SHELL32.DLL,SHHelpShortcuts_RunDLL Connect
+  ~~~~~~
 
+* Wählen Sie einen zu verwendenden Laufwerkbuchstaben
+* Als Pfad für den Ordner verwenden Sie: `\\prcpp-desktop\vagrant-home`
+* Wählen Sie zudem: `Verbindung bei Anmeldund wiederherstellen` und `Verbindung mit anderen Anmeldeinformationen herstellen`
+* Im nächsten Dialog nutzen Sie als User/Passwort: `vagrant:vagrant` und wählen Sie `Anmeldedaten speichern`

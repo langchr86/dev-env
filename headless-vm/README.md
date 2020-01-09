@@ -4,7 +4,7 @@ Headless-VM
 Diese VM ist auf headless-Betrieb mittels x11-Server ausgelegt
 und benötigt neben Virtualbox noch diverse andere Tools.
 Diese Variante erlaubt professionelle Entwicklung
-unter der verwendung von nur einem Window-Manager
+unter der Verwendung von nur einem Window-Manager
 und den korrekten Umgang mit SSH-Keys und Git-Repos.
 
 

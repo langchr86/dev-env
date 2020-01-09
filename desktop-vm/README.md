@@ -3,40 +3,47 @@ Desktop-VM
 
 Diese VM ist auf Desktop-Betrieb über die Virtualbox-Visualisierung ausgelegt
 und erlaubt auf möglichst einfache Art die Verwendung der Entwicklungsumgebung.
-Die VM selber ist bereits generiert
-und muss nur noch in Virtualbox importiert werden.
 
-Das Archiv-File der VM finden Sie hier zum Download: TODO
-
+Die Generierung ist fast vollständig automatisiert.
+Der Komplette Vorgang wird folgend beschrieben.
 
 
-Einrichten
-==========
+Erzeugung mittels Vagrant und Ansible
+-------------------------------------
 
-In dieser Anleitung gehen wir Schritt für Schritt durch das Einrichten der
-Entwicklungsumgebung durch. Die hier beschriebenen Tools etc. sind für eine
-Windows-Umgebung vorgesehen, sollten aber auch ähnlich unter Linux oder OSX
-funktionieren oder es sind entsprechende Alternativen verfügbar.
+Siehe: [](../headless-vm/README.md)
 
-
-Virtualbox
-----------
-
-Wir verwenden Virtualbox as Hypervisor für die VM.
-[VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
-
-Nach der Installation können Sie die heruntergeladene VM importieren
-
-TODO
+* generate with vagrant
+* start up with GUI
 
 
-VM Tuning (optional)
----------
+Projekt und IDE vorbereiten
+---------------------------
 
-Bei Bedarf können Teilaspekte der VM auch nachträglich über das Virtualbox GUI
-angepasst werden. Dazu muss die VM gestoppt sein.
+* checkout workspace repo in `~/prcpp`: `git clone git@gitlab.fhnw.ch:prcpp/students/workspace.git`
+* remove folders: `cd ~/prcpp/workspace && rm -rf folien arbeitsblaetter`
 
-* HDD Modus der virtuellen Disks auf SSD stellen.
-* RAM/CPUs anpassen
+* open project in clion
+* setup clion settings
+  * enable toolbar: `View` -> `Appearance` -> `Toolbar`
+  * enable font zooming: `Editor` -> `General` -> `Change font size (Zoom) with Ctrl+mouse wheel`
+  * disable code folding for C/C++ and General: `Editor` -> `General` -> `Code Folding`
+  * add hotkey for cmake update: Ctrl+F10
+* setup clion project settings
+  * add `All` cmake target
+  * add `RelWithDebInfo` configuration
+  * add jobs option: `-j 2`
+  * disable automatic git staging: `Version control` -> `Confirmation` -> `When files are created` -> `Do not add`
+* setup clion project settings that are commited:
+  * code style
+  * disable adding files to CMakeLists.txt
 
-TODO
+
+Abschliessen
+------------
+
+* shutdown VM
+* remove existing shared folders
+* disable active serial interfaces (not working afterwords??)
+* export as appliance OVA 2.0: `prcpp-desktop.ova`
+* deploy file to AD and USB sticks
