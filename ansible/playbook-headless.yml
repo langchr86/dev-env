@@ -8,7 +8,7 @@
     changed_when: False
 
   - include_tasks: tasks/ubuntu_apt.yml
-
+  - include_tasks: tasks/ubuntu_headless.yml
 
   tasks:
   - include_tasks: tasks/basicsetup.yml
