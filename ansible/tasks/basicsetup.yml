@@ -9,7 +9,6 @@
   - rsync
   - unzip
   - tar
-  - okular
 
 - name: Install X11 base
   become: yes
