@@ -23,12 +23,15 @@ Projekt und IDE vorbereiten
 * checkout workspace repo in `~/prcpp`: `git clone git@gitlab.fhnw.ch:prcpp/students/workspace.git`
 * remove folders: `cd ~/prcpp/workspace && rm -rf folien arbeitsblaetter`
 
+* open clion
+* select evaluation licence
 * open project in clion
 * setup clion settings
   * enable toolbar: `View` -> `Appearance` -> `Toolbar`
   * enable font zooming: `Editor` -> `General` -> `Change font size (Zoom) with Ctrl+mouse wheel`
   * disable code folding for C/C++ and General: `Editor` -> `General` -> `Code Folding`
   * add hotkey for cmake update: Ctrl+F10
+  * change header guard to use `#pragma once`: `Editor` -> `File and Code Templates` -> `Files` -> `C Header File` and `C++ Class Header` -> change to `#[[#pragma]]# once`
 * setup clion project settings
   * add `All` cmake target
   * add `RelWithDebInfo` configuration
@@ -36,7 +39,11 @@ Projekt und IDE vorbereiten
   * disable automatic git staging: `Version control` -> `Confirmation` -> `When files are created` -> `Do not add`
 * setup clion project settings that are commited:
   * code style
-  * disable adding files to CMakeLists.txt
+  * disable adding files to CMakeLists.txt (add one new file and de-select `Add to targets`
+
+* close all files
+* select `All` target
+* revert all made changes
 
 
 Abschliessen
