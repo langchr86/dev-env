@@ -83,7 +83,7 @@ Verwendung der Desktop-VM
 =========================
 
 Starten Sie die VM direkt in Virtualbox und verwenden Sie die Desktop-Oberfläche.
-Nutzername und Passwort sind: `vargant:vargant`.
+Nutzername und Passwort sind: `vagrant:vagrant`.
 
 Das Arbeits-Repository ist innerhalb der VM bereits vorbereitet unter: `~/prcpp/workspace`.
 Sie können dieses mit CLion öffnen und direkt darin arbeiten.
@@ -100,9 +100,10 @@ diesen ein. Verwenden Sie die Standard-Toolchain.
 
 | Shortcut               | Explanation                      |
 |---                     |---                               |
-| `Ctrl` + `Alt` + `l`   | Formatierung                     |
+| `Ctrl` + `Alt` + `l`   | Automatische Formatierung        |
+| `Ctrl` + `F10`         | Reload CMake                     |
 | `Ctrl` + `F9`          | Build                            |
-| `Ctrl` + `F10`         | Reload CMake)                    |
+| `Shift` + `F9`         | Run                              |
 | `Alt` + `F7`           | Find usage                       |
 | `Shift`, `Shift`       | Intelligente Suche               |
 | `Ctrl` + `Alt` + `s`   | Settings                         |
@@ -146,8 +147,8 @@ Einfügen markieren.
 
 ### Variante SMB-Share
 
-Die Desktop-VM hat bereits ein eingerichten Samba-Dienst,
-welcher eine SMB-Share für das Home-Verzeichniss des `vagrant`-Users zur Verfügung stellt.
+Die Desktop-VM hat bereits einen eingerichten Samba-Dienst,
+welcher eine SMB-Share für das Home-Verzeichnis des `vagrant`-Users zur Verfügung stellt.
 Dieses Share können Sie in Windows direkt verwenden.
 
 * Öffnen Sie den Dialog für Netzwerk-Laufwerke mittels `Win` + `R` und:
