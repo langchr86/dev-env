@@ -93,6 +93,11 @@ Tipp: Es kann praktisch sein, Commits während dem Lösen von Aufgaben/Testaten 
 Arbeiten mit CLion
 ------------------
 
+Für CLion und alle anderen JetBrains Produkte erhalten sie unter
+[www.jetbrains.com/student/](https://www.jetbrains.com/student/) eine gratis
+Lizenz. Starten Sie CLion mittels `clion&` über die Konsole und richten Sie
+diesen ein. Verwenden Sie die Standard-Toolchain.
+
 | Shortcut               | Explanation                      |
 |---                     |---                               |
 | `Ctrl` + `Alt` + `l`   | Formatierung                     |
