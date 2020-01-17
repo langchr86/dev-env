@@ -21,18 +21,23 @@
     vars:
       ssh_pub_files: ['ssh_key_clang_home.opub']
 
-  - role: git-tools
-    vars:
-      git_user_name: "Christian Lang"
-      git_user_email: "christian.lang@fhnw.ch"
-      git_rerere: on
-      git_editor_nano: on
-      git_prompt: on
-
   - role: swapfile
   - role: bash
   - role: tmux
   - role: clion
+
+  - role: git-tools
+    vars:
+      git_aliases: on
+      git_rerere: on
+      git_editor_nano: on
+      git_prompt: on
+      git_archivestotext: on
+      git_docxtotext: on
+      git_pdftotext: on
+      git_xlsxtotext: on
+      git_user_name: "Christian Lang"
+      git_user_email: "christian.lang@fhnw.ch"
 
   - role: dockerce
   - role: pandoc
