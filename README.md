@@ -159,5 +159,5 @@ Dieses Share können Sie in Windows direkt verwenden.
 
 * Wählen Sie einen zu verwendenden Laufwerkbuchstaben
 * Als Pfad für den Ordner verwenden Sie: `\\prcpp-desktop\vagrant-home`
-* Wählen Sie zudem: `Verbindung bei Anmeldund wiederherstellen` und `Verbindung mit anderen Anmeldeinformationen herstellen`
+* Wählen Sie zudem: `Verbindung bei Anmeldung wiederherstellen` und `Verbindung mit anderen Anmeldeinformationen herstellen`
 * Im nächsten Dialog nutzen Sie als User/Passwort: `vagrant:vagrant` und wählen Sie `Anmeldedaten speichern`

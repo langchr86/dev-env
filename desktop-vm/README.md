@@ -26,6 +26,7 @@ Projekt und IDE vorbereiten
 * open clion
 * select evaluation licence
 * open project in clion
+* let clion update itself
 * setup clion settings
   * enable toolbar: `View` -> `Appearance` -> `Toolbar`
   * enable font zooming: `Editor` -> `General` -> `Change font size (Zoom) with Ctrl+mouse wheel`
