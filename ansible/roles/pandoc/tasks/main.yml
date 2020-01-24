@@ -64,10 +64,15 @@
   - libgmp10
   - zlib1g
 
+- stat:
+    path: /usr/bin/pandoc
+  register: pandoc_binary
+
 - name: Install pandoc
   become: yes
   apt:
     deb: https://github.com/jgm/pandoc/releases/download/2.8.0.1/pandoc-2.8.0.1-1-amd64.deb
+  when: pandoc_binary.stat.exists == False
 
 - name: Install FiraSans
   become: yes
