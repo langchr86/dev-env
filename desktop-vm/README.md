@@ -21,7 +21,7 @@ Projekt und IDE vorbereiten
 ---------------------------
 
 * checkout workspace repo in `~/prcpp`: `git clone git@gitlab.fhnw.ch:prcpp/students/workspace.git`
-* remove folders: `cd ~/prcpp/workspace && rm -rf folien arbeitsblaetter`
+* remove folders: `cd ~/prcpp/workspace && rm -rf folien arbeitsblaetter admin`
 
 * open clion
 * select evaluation licence
