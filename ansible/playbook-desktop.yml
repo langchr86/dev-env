@@ -26,6 +26,7 @@
   - role: bash
   - role: tmux
   - role: clion
+  - role: google_testing
 
   - role: git-tools
     vars:
