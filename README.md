@@ -148,7 +148,7 @@ Einfügen markieren.
 ### Variante SMB-Share
 
 Die Desktop-VM hat bereits einen eingerichten Samba-Dienst,
-welcher eine SMB-Share für das Home-Verzeichnis des `vagrant`-Users zur Verfügung stellt.
+welcher ein SMB-Share für das Home-Verzeichnis des `vagrant`-Users zur Verfügung stellt.
 Dieses Share können Sie in Windows direkt verwenden.
 
 * Öffnen Sie den Dialog für Netzwerk-Laufwerke mittels `Win` + `R` und:

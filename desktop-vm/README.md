@@ -16,6 +16,14 @@ Siehe: [](../headless-vm/README.md)
 * generate with vagrant
 * start up with GUI
 
+If problems with DHCP arises:
+
+~~~
+VBoxManage list dhcpservers
+// and delete old ones with:
+VBoxManage dhcpserver remove --netname "HostInterfaceNetworking-vboxnet0"
+~~~
+
 
 Projekt und IDE vorbereiten
 ---------------------------
@@ -23,9 +31,11 @@ Projekt und IDE vorbereiten
 * checkout workspace repo in `~/prcpp`: `git clone git@gitlab.fhnw.ch:prcpp/students/workspace.git`
 * remove folders: `cd ~/prcpp/workspace && rm -rf folien arbeitsblaetter admin`
 
+* checkout dev-env repo in `~/prcpp`: `git clone git@gitlab.fhnw.ch:prcpp/students/dev-env.git`
+
 * open clion
 * select evaluation licence
-* open project in clion
+* open `workspace` project in clion
 * let clion update itself
 * setup clion settings
   * enable toolbar: `View` -> `Appearance` -> `Toolbar`
@@ -52,6 +62,5 @@ Abschliessen
 
 * shutdown VM
 * remove existing shared folders
-* disable active serial interfaces (not working afterwords??)
 * export as appliance OVA 2.0: `prcpp-desktop.ova`
 * deploy file to AD and USB sticks
