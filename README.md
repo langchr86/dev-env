@@ -49,10 +49,6 @@ Wir verwenden Virtualbox as Hypervisor für die VM.
 
 Nach der Installation können Sie die heruntergeladene VM als Appliance importieren.
 
-Unter den VM-Einstellungen finden Sie den Punkt `Serielle Schnittestellen`.
-Passen Sie dort den Pfad zu einem existierenden Ordner an,
-wo das Debug-Log der VM gespeichert werden kann.
-
 
 Rechen-Performance der VM
 -------------------------
@@ -94,9 +90,11 @@ Arbeiten mit CLion
 ------------------
 
 Für CLion und alle anderen JetBrains Produkte erhalten sie unter
-[www.jetbrains.com/student/](https://www.jetbrains.com/student/) eine gratis
-Lizenz. Starten Sie CLion mittels `clion&` über die Konsole und richten Sie
-diesen ein. Verwenden Sie die Standard-Toolchain.
+[www.jetbrains.com/student/](https://www.jetbrains.com/student/)
+eine gratis Lizenz.
+Starten Sie CLion mittels `clion&` über die Konsole oder direkt über die Desktop Verknüpfung
+und richten Sie diesen ein.
+Verwenden Sie die Standard-Toolchain.
 
 | Shortcut               | Explanation                      |
 |---                     |---                               |

@@ -43,12 +43,13 @@ Projekt und IDE vorbereiten
   * disable code folding for C/C++ and General: `Editor` -> `General` -> `Code Folding`
   * add hotkey for cmake update: Ctrl+F10
   * change header guard to use `#pragma once`: `Editor` -> `File and Code Templates` -> `Files` -> `C Header File` and `C++ Class Header` -> change to `#[[#pragma]]# once`
+  * remove author description file template: `Editor` -> `File and Code Templates` -> `Includes` -> `C File Header` -> clear whole text field
 * setup clion project settings
   * add `All` cmake target
   * add `RelWithDebInfo` configuration
   * add jobs option: `-j 2`
   * disable automatic git staging: `Version control` -> `Confirmation` -> `When files are created` -> `Do not add`
-* setup clion project settings that are commited:
+* setup clion to use project settings that are commited:
   * code style
   * disable adding files to CMakeLists.txt (add one new file and de-select `Add to targets`
 

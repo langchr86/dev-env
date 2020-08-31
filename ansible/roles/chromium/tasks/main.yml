@@ -1,11 +1,12 @@
 ---
 
-- name: add ppa repository
-  become: yes
-  apt_repository:
-    repo: 'ppa:canonical-chromium-builds/stage'
-    state: present
-    update_cache: yes
+# no longer needed in 20.04
+#- name: add ppa repository
+#  become: yes
+#  apt_repository:
+#    repo: 'ppa:canonical-chromium-builds/stage'
+#    state: present
+#    update_cache: yes
 
 - name: install chromium
   become: yes
