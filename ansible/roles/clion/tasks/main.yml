@@ -22,7 +22,7 @@
 - name: Add clion alias for user
   lineinfile:
     dest="{{ clion_user_dir }}/.bash_aliases"
-    line="alias clion='{{ clion_location }}/bin/clion.sh'"
+    line="alias clion='{{ clion_location }}/bin/clion.sh &>/dev/null'"
     regexp='^alias clion='
     state=present
     insertafter=EOF
