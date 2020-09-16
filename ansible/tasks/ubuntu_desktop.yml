@@ -3,12 +3,6 @@
   apt:
     upgrade: yes
 
-- name: Install desktop environment
-  become: yes
-  apt:
-    name: ubuntu-desktop
-    install_recommends: no
-
 - name: Install samba
   become: yes
   apt:

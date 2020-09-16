@@ -12,7 +12,7 @@
 
   tasks:
   - include_tasks: tasks/basicsetup.yml
-  - include_tasks: tasks/virtualbox_additions.yml
+#  - include_tasks: tasks/virtualbox_additions.yml  ## already installed in image
   - include_tasks: tasks/buildtools.yml
   - include_tasks: tasks/prcpp.yml
   - include_tasks: tasks/okular.yml

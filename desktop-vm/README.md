@@ -14,6 +14,7 @@ Erzeugung mittels Vagrant und Ansible
 Siehe: [](../headless-vm/README.md)
 
 * generate with vagrant
+* maybe manually do shutdown and `vagrant up --provision` if it hangs
 * start up with GUI
 
 If problems with DHCP arises:
@@ -64,4 +65,4 @@ Abschliessen
 * shutdown VM
 * remove existing shared folders
 * export as appliance OVA 2.0: `prcpp-desktop.ova`
-* deploy file to AD and USB sticks
+* split up file into smaller ones and deploy to AD and USB sticks
