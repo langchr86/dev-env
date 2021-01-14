@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+vm_name = "dev-env"
+
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
   config.vm.box_version = "20200825.0.0"
@@ -8,13 +10,11 @@ Vagrant.configure("2") do |config|
   config.vagrant.plugins = ["vagrant-disksize"]
   config.disksize.size = '16GB'
 
-
-
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "prcpp-headless"
+    vb.name = vm_name
     vb.memory = "4096"
     vb.cpus = 3
     vb.customize ["modifyvm", :id, "--vram", "64"]
@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL]
   end
 
-  config.vm.hostname = "prcpp-headless"
+  config.vm.hostname = vm_name
   config.vm.synced_folder "./ansible/", "/vagrant/ansible"
 
   # remove not yet supported ansible ppa

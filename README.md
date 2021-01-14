@@ -1,5 +1,5 @@
-Headless-VM
-===========
+dev-env
+=======
 
 Diese VM ist auf headless-Betrieb mittels x11-Server ausgelegt
 und benötigt neben Virtualbox noch diverse andere Tools.
