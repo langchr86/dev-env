@@ -29,6 +29,9 @@
   - role: hunspell
   - role: google_testing
 
+  - role: fubarhouse.rust
+    shell_profiles: ['.bash_profile']
+
   - role: git-tools
     vars:
       git_aliases: on

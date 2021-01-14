@@ -1,2 +1,3 @@
 - src: 'https://github.com/langchr86/git-tools.git'
   version: 'master'
+- src: fubarhouse.rust
