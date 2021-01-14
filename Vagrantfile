@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.hostname = "prcpp-headless"
-  config.vm.synced_folder "../ansible/", "/vagrant/ansible"
+  config.vm.synced_folder "./ansible/", "/vagrant/ansible"
 
   # remove not yet supported ansible ppa
   config.vm.provision "shell",
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "ansible_local" do |ansible|
     ansible.install_mode = "pip"
-    ansible.playbook = "/vagrant/ansible/playbook-headless.yml"
+    ansible.playbook = "/vagrant/ansible/playbook.yml"
     ansible.galaxy_role_file = "/vagrant/ansible/requirements.yml"
   end
 
