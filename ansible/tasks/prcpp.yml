@@ -1,4 +1,0 @@
-- name: create prcpp folder
-  file:
-    dest: "{{ ansible_env.HOME }}/prcpp"
-    state: directory
