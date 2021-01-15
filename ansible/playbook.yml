@@ -1,12 +1,6 @@
 - hosts: all
 
   pre_tasks:
-  - name: Update package manager repositories
-    become: yes
-    apt:
-      update_cache: yes
-    changed_when: False
-
   - include_tasks: tasks/ubuntu_apt.yml
   - include_tasks: tasks/ubuntu_headless.yml
 

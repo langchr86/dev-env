@@ -22,16 +22,9 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.hostname = vm_name
-  config.vm.synced_folder "./ansible/", "/vagrant/ansible"
 
-  # remove not yet supported ansible ppa
   config.vm.provision "shell",
-    inline: "rm -f /etc/apt/sources.list.d/ansible-ansible-focal.list"
-
-  config.vm.provision "ansible_local" do |ansible|
-    ansible.install_mode = "pip"
-    ansible.playbook = "/vagrant/ansible/playbook.yml"
-    ansible.galaxy_role_file = "/vagrant/ansible/requirements.yml"
-  end
+    inline: "/vagrant/provision.sh",
+    privileged: false
 
 end
