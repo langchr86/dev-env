@@ -23,6 +23,7 @@
 
   - role: fubarhouse.rust
     shell_profiles: ['.bash_profile']
+    cargo_items: []
 
   - role: git-tools
     vars:
