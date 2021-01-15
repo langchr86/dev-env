@@ -41,7 +41,7 @@
       git_pdftotext: on
       git_xlsxtotext: on
       git_user_name: "Christian Lang"
-      git_user_email: "christian.lang@fhnw.ch"
+      git_user_email: "lang.chr86@gmail.com"
 
   - role: dockerce
   - role: pandoc
