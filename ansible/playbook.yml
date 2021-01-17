@@ -20,6 +20,7 @@
   - role: google_testing
 
   - role: fubarhouse.rust
+    become: yes
     shell_profiles: ['.bash_profile']
     cargo_items: []
 
