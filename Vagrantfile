@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_version = "20210114.0.0"
 
   config.vagrant.plugins = ["vagrant-disksize"]
-  config.disksize.size = '16GB'
+  config.disksize.size = '128GB'
 
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
