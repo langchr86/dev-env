@@ -9,6 +9,7 @@
   - rsync
   - unzip
   - tar
+  - fd-find
 
 - name: Install X11 base
   become: yes
