@@ -37,3 +37,9 @@
   template:
     dest: "{{ ansible_env.HOME }}/.local/share/applications/jetbrains-clion.desktop"
     src: "jetbrains-clion.desktop"
+
+- name: Define a high number of inotify watches
+  become: yes
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: 524288
