@@ -42,3 +42,4 @@
   - role: drawio
   - role: chromium
   - role: okular
+  - role: yocto
