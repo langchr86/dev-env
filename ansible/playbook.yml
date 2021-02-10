@@ -13,6 +13,9 @@
       ssh_pub_files: ['ssh_key_clang_home.opub']
 
   - role: swapfile
+    vars:
+      swapfile_size: 8G
+
   - role: bash
   - role: tmux
   - role: clion
