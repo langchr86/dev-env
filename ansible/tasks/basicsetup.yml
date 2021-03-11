@@ -10,6 +10,7 @@
   - unzip
   - tar
   - fd-find
+  - firefox
 
 - name: Install X11 base
   become: yes

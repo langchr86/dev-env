@@ -43,6 +43,5 @@
   - role: dockerce
   - role: pandoc
   - role: drawio
-  - role: chromium
   - role: okular
   - role: yocto
