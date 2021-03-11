@@ -17,8 +17,10 @@ Vagrant.configure("2") do |config|
     vb.name = vm_name
     vb.memory = "4096"
     vb.cpus = 3
-    vb.customize ["modifyvm", :id, "--vram", "64"]
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
     vb.customize ["modifyvm", :id, "--spec-ctrl", "on"]
+    vb.customize ["modifyvm", :id, "--vram", "64"]
+    vb.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
   end
 
   config.vm.hostname = vm_name
