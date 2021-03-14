@@ -14,6 +14,7 @@
   - texlive-lang-german
   - texlive-science
   - texlive-xetex
+  - texlive-extra-utils
   - latexmk
 
 - name: Install latex themes
