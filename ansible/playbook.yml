@@ -24,7 +24,7 @@
 
   - role: fubarhouse.rust
     become: yes
-    shell_profiles: ['.bash_profile']
+    shell_profiles: ['{{ ansible_env.HOME }}/.bash_profile']
     cargo_items: []
 
   - role: git-tools
