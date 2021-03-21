@@ -1,5 +1,0 @@
----
-
-pandoc_tikz_uml_mirror: "http://perso.ensta-paristech.fr/~kielbasi/tikzuml/var/files/src"
-pandoc_tikz_uml_version: "tikzuml-v1.0-2016-03-29"
-pandoc_tikz_uml_url: "{{ pandoc_tikz_uml_mirror }}/{{ pandoc_tikz_uml_version }}.tbz"

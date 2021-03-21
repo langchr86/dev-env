@@ -41,7 +41,15 @@
       git_user_email: "lang.chr86@gmail.com"
 
   - role: dockerce
-  - role: pandoc
-  - role: drawio
+  - role: ansible-role-docmake
+    vars:
+      pandoc: on
+      texlive_min: on
+      texlive_additional: on
+      markdownlint: on
+      drawio: on
+      gpp: on
+      metropolis: on
+      tikz_uml: on
   - role: okular
   - role: yocto
