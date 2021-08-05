@@ -23,3 +23,8 @@
   ignore_errors: yes
   failed_when: false
   with_items: "{{ apt_processes.stdout_lines }}"
+
+- name: Enable ubuntu universe repository
+  become: yes
+  apt_repository:
+    repo: "deb http://us.archive.ubuntu.com/ubuntu {{ ansible_distribution_release|lower }} universe"
