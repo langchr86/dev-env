@@ -3,6 +3,6 @@
   package: name={{ item }}
   with_items:
   - dkms
-  - virtualbox-guest-dkms
+  - virtualbox-dkms
   - virtualbox-guest-utils
   - virtualbox-guest-x11
