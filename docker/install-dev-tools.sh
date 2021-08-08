@@ -2,6 +2,8 @@
 
 apt-get update
 apt-get install -y \
+        autoconf \
+        automake \
         ccache \
         gdb \
         git \
