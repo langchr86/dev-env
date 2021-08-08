@@ -1,6 +1,14 @@
 - hosts: all
 
+  pre_tasks:
+    - include_tasks: tasks/ubuntu_headless.yml
+    - include_tasks: tasks/basicsetup.yml
+
   roles:
+  - role: bash
+  - role: tmux
+  - role: google_testing
+
   - role: git-tools
     vars:
       git_aliases: on
@@ -13,3 +21,17 @@
       git_xlsxtotext: on
       git_user_name: "Christian Lang"
       git_user_email: "lang.chr86@gmail.com"
+
+  - role: ansible-role-docmake
+    vars:
+      install_essential_tools: off
+      pandoc: on
+      texlive_min: on
+      texlive_additional: on
+      markdownlint: on
+      drawio: on
+      gpp: on
+      metropolis: on
+      tikz_uml: on
+      nodejs_version: 17
+  - role: okular
