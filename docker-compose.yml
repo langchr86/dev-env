@@ -1,0 +1,46 @@
+version: "3.3"
+
+services:
+  machine:
+    container_name: dev-env-machine
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    restart: always
+    privileged: true
+    networks:
+      - net
+    volumes:
+      - certs:/certs/client:ro
+      - home:/home/dev
+      - ~/.ssh:/home/dev/.ssh:ro
+    ports:
+      - "2022:22"
+
+  dind:
+    container_name: dev-env-dind
+    image: docker:dind
+    restart: always
+    privileged: true
+    networks:
+      net:
+        aliases:
+          - docker
+    volumes:
+      - certs:/certs/client
+      - home:/home/dev:ro
+      - docker:/var/lib/docker
+    environment:
+      - DOCKER_TLS_CERTDIR=/certs
+    ports:
+      - "2376:2376"
+
+networks:
+  net:
+    driver:
+      bridge
+
+volumes:
+  certs:
+  home:
+  docker:

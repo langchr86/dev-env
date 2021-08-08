@@ -1,0 +1,15 @@
+- hosts: all
+
+  roles:
+  - role: git-tools
+    vars:
+      git_aliases: on
+      git_rerere: on
+      git_editor_nano: on
+      git_prompt: on
+      git_archivestotext: on
+      git_docxtotext: on
+      git_pdftotext: on
+      git_xlsxtotext: on
+      git_user_name: "Christian Lang"
+      git_user_email: "lang.chr86@gmail.com"
