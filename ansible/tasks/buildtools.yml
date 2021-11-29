@@ -1,21 +1,21 @@
 - name: Install build tools
   become: yes
-  package: name={{ item }}
-  with_items:
-  - build-essential
-  - gcc
-  - g++
-  - gcc-11
-  - g++-11
-  - ccache
-  - cmake
-  - automake
-  - autoconf
-  - pkg-config
-  - valgrind
-  - gcovr
-  - python
-  - libsystemd-dev
+  package:
+    name:
+      - build-essential
+      - gcc
+      - g++
+      - gcc-11
+      - g++-11
+      - ccache
+      - cmake
+      - automake
+      - autoconf
+      - pkg-config
+      - valgrind
+      - gcovr
+      - python
+      - libsystemd-dev
 
 - name: Install catch2
   become: yes
