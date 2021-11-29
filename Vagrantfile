@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_x11 = true
 
  config.vm.network "forwarded_port", guest: 2022, host: 2022
+ config.vm.network "private_network", type: "dhcp"
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = vm_name
